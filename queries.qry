@@ -1,0 +1,55 @@
+// SPDX-License-Identifier: Apache-2.0
+
+query listAllCooperative {
+    description: "List all cooperatives"
+    statement:
+        SELECT org.coopact.Cooperative
+}
+
+
+query getSharesByCooperative {
+    description: "List Shares by cooperative"
+    statement:
+        SELECT org.coopact.Share
+            WHERE (company.id == _$company)
+                ORDER BY [emitTime ASC]
+}
+
+query getSharesByCooperateur {
+    description: "List Shares owned by a given cooperateur"
+    statement:
+        SELECT org.coopact.Share
+            WHERE (owner.id == _$owner)
+                ORDER BY [emitTime ASC]
+}
+
+query getListofCooperateur {
+    description: "List all the cooperateur of one given company"
+    statement:
+        SELECT org.coopact.Share
+            WHERE (company.id == _$company)
+}
+
+query getListofCooperative {
+    description: "List all the cooperative in which one cooperateur has some stocks"
+    statement:
+        SELECT org.coopact.Share
+            WHERE (owner.id == _$owner)
+}
+
+
+query showCommodityAllHistorians{
+  description: "Select commodity all historians"
+  statement:
+    SELECT org.hyperledger.composer.system.HistorianRecord
+        FROM HistorianRegistry
+          WHERE (transactionType == 'AddAsset' OR transactionType =='UpdateAsset' OR transactionType == 'RemoveAsset')
+}
+
+query findCommmodityHistoriansWithTime{
+  description: "Find commodity historians after a specified time"
+  statement:
+    SELECT org.hyperledger.composer.system.HistorianRecord
+        FROM HistorianRegistry
+         WHERE (transactionTimestamp > _$justnow)
+}
