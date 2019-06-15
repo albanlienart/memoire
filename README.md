@@ -8,18 +8,18 @@ Le but de ce réseau est de créer un réseau sécurisé qui fait office de regi
 
 Passons en revue l’utilité de chaque fichier :
 
-* logic.js : contient toute la logique de transaction
-* org.coopact.cto : contient la définition des biens et des individus  
+* lib/logic.js : contient toute la logique de transaction
+* models/org.coopact.cto : contient la définition des biens et des individus  
 * permission.acl : contient toutes les permissions accordées aux différents participants 
 * queries.qry : contient différentes requêtes qui peuvent être adressées à la base de données            
 * package.json : représente la "carte d'identité" du réseau. Contient toutes les spécifications de ce dernier
-* full_database.xlsx : une base de données artificielle contenant 400 coopérateurs
-* database.xslx : une base de données artificielle contenant 10 coopérateurs  
-* db2bc.sh : Script utilisé pour transformer les bases de données sous format Excel vers la blockchain             
-* newCoop.sh : crée une nouvelle coopérative sur la blockchain            
-* test.js : démarre un test indépendant              
-* newCooperateur.sh : crée un nouveau coopérateur 
-* newTrans.sh : crée une nouvelle transaction sur la blockchain
+* test/DB/full_database.xlsx : une base de données artificielle contenant 400 coopérateurs
+* test/DB/database.xslx : une base de données artificielle contenant 10 coopérateurs  
+* test/db2bc.sh : Script utilisé pour transformer les bases de données sous format Excel vers la blockchain             
+* test/newCoop.sh : crée une nouvelle coopérative sur la blockchain            
+* test/test.js : démarre un test indépendant              
+* test/newCooperateur.sh : crée un nouveau coopérateur 
+* test/newTrans.sh : crée une nouvelle transaction sur la blockchain
 * admin@coopact-network.card : carte d'accès au réseau en tant qu'administrateur 
 * coopact-network@0.1.2.bna : fichier compilé qui contient tous le chaincode de la blockchain
 
