@@ -40,7 +40,7 @@ echo "postCode"
 read postCode
 #------------------------------------------------------
 
-
+#----- send curl request---
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
    "$class": "org.coopact.Cooperative",
    "CompanyNumber": "'${CompanyNumber}'",
