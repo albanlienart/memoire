@@ -4,7 +4,7 @@ Ce répertoire contient une implémentation d'un réseau [Hyperledger Composer](
 
 Le projet ci-présent a été inspirée par le projet [Tuna-Network](https://github.com/hyperledger/education/tree/master/LFS171x/composer-material/tuna-network)
 
-Le but de ce réseau est de créer un réseau sécurisé qui fait office de registre d'actionnaires pour les coopératives. Différentes coopératives peuvent s'enregistrer sur le réseau et générer de parts pour des coopérateurs. Ces derniers peuvent aussi revendre leurs parts aux coopératives et peuvent détenir des parts dans plusieurs coopératives. Tout ça a ete crée avec comme objectif principal d'assurer une sécurité et confidentialité maximum.
+Le but de ce réseau est de créer un réseau sécurisé qui fait office de registre d'actionnaires pour les coopératives. Différentes coopératives peuvent s'enregistrer sur le réseau et générer de parts pour des coopérateurs. Ces derniers peuvent aussi revendre leurs parts aux coopératives et peuvent détenir des parts dans plusieurs coopératives. Tout ça a ete crée avec comme objectif principal d'assurer une sécurité et confidentialité maximal.
 
 Passons en revue l’utilité de chaque fichier :
 
@@ -23,6 +23,12 @@ Passons en revue l’utilité de chaque fichier :
 * admin@coopact-network.card : carte d'accès au réseau en tant qu'administrateur 
 * coopact-network@0.1.2.bna : fichier compilé qui contient tous le chaincode de la blockchain
 
+
+
+## License
+This code pattern is licensed under the Apache Software License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
+
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
 
 
 
