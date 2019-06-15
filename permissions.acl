@@ -12,6 +12,10 @@
  * limitations under the License.
  */
 
+ /*
+  * Author: Alban Liénart
+  */
+
 rule NetworkAdminUser {
     description: "Grant business network administrators full access to user resources"
     participant: "org.hyperledger.composer.system.NetworkAdmin"

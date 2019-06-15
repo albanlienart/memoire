@@ -13,11 +13,12 @@
  */
 
 /**
- * Write your model definitions here
+ * Author: Alban Liénart
  */
 
 namespace org.coopact
 
+//defines an abstract Individual. We'll implement some particpicpant based on this abstarct model. Defining an abstract class avoides redundancy
 abstract participant Individual identified by id {
     o String id
     o String name
@@ -33,44 +34,53 @@ concept Address {
     o String postCode regex=/\d{4}/
 }
 
+//defines a cooperative with the legal company number and a physical presentative
 participant Cooperative extends Individual {
     o String CompanyNumber
     o String LegalRepresentative
 }
 
+//defines a physical person as cooperateur. The birthday field is not mandatory, but in case you fill it, the regex requires the following format: 01/01/2000
 participant Cooperateur extends Individual {
     o String firstName
     o String pseudo
     o String birthday optional regex=/\d{2}[\/]\d{2}[\/]\d{4}/
 }
 
+//defines a moral person as cooperateur (eg: a company who wants to buy some shares). The CompanyType includes the four
 participant CooperateurMoral extends Individual {
     o String LegalRepresentative
     o CompanyType SocialStatus
     o String CompanyIDNumber
 }
 
+//defines a regulaor. This participant has been created to be compliant with the Law
 participant Regulator identified by id {
     o String id
     o String name
 }
 
+//this asset is what we'll exchange on the blockchain. It represents a share of a cooperative.
+// The range means that the value of the share has to be between 1 and 1000000 euro
+//The PaymentReference has to follow the belgian structured format of invoices : 123/1234/12345
 asset Share identified by ShareId {
     o String ShareId
-    o Integer value range=[1, 1000000]
+    o Integer value range=[1, 1000000]physical
     o ShareStatus status default="EMIT"
     o DateTime emitTime
     o String PaymentReference regex=/\d{3}[\/]\d{4}[\/]\d{5}/
     o ShareClassType type
-    --> Individual owner
+    --> Individual owner //which participant is the owner of this share ?
     --> Cooperative company  //to which company is this a share
 }
 
+//possible values of the enum ShareStatus
 enum ShareStatus {
     o EMIT
     o PURCHASED
 }
 
+//possible values of the enum CompanyType
 enum CompanyType {
     o SA
     o SC
@@ -78,6 +88,7 @@ enum CompanyType {
     o ASBL
 }
 
+//possible value of the enum ShareClassType
 enum ShareClassType{
     o A
     o B
@@ -107,12 +118,13 @@ transaction ReturnShare {
     --> Cooperative cooperative
 }
 
-//transaction to clean my test. Only for developpement purpose
+//transaction to clean the tests. Only for developpement purpose
 transaction CleanAll {
     o String random optional
 }
 
 // seller and buyer are identified by company number and pseudo
+//event that will be delivered when a share is sold
 event ShareSale {
     o String ShareId
     o String seller

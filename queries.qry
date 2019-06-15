@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
+//Author : Alban Liénart
 
 query listAllCooperative {
     description: "List all cooperatives"
